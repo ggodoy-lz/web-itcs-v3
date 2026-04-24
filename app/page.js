@@ -345,7 +345,7 @@ const page = () => {
                       />
                     </div>
                     <div className="image">
-                      <img src="assets/img/service/01.jpg" alt />
+                      <img src="assets/img/service/05.jpg" alt="" />
                     </div>
                     <div className="content">
                       <div className="icon">
@@ -380,7 +380,7 @@ const page = () => {
                       />
                     </div>
                     <div className="image">
-                      <img src="assets/img/service/02.jpg" alt />
+                      <img src="assets/img/service/02.jpg" alt="" />
                     </div>
                     <div className="content">
                       <div className="icon">
@@ -413,7 +413,7 @@ const page = () => {
                       />
                     </div>
                     <div className="image">
-                      <img src="assets/img/service/03.jpg" alt />
+                      <img src="assets/img/service/06.jpg" alt="" />
                     </div>
                     <div className="content">
                       <div className="icon">
@@ -668,7 +668,7 @@ const page = () => {
         {/* Contact Section Start */}
         <Contact wrapperClass="contact-us-wrapper contact-us-1 section-padding" />
         {/* Blog Section Start */}
-        <Blog wrapperClass="blog-wrapper blog-1 section-padding section-bg" />
+        <Blog wrapperClass="blog-wrapper blog-1 section-padding section-bg about-page-blog" />
         {/* Cta Section Start */}
         <section className="cta-wrapper cta-1">
           <div className="container">

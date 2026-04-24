@@ -75,6 +75,65 @@ html {
   padding-bottom: 0px;
 }
 
+/* Página /blog: la plantilla deja 220px abajo; compactamos sin afectar home/about */
+.blog-wrapper.blog-1:not(.about-page-blog) .blog-inner {
+  padding-bottom: 3.5rem !important;
+}
+
+/* Blog-1: sin hueco por igualar altura de fila + caja de imagen fija (portada) */
+.blog-wrapper.blog-1 .blog-inner .row {
+  align-items: flex-start;
+}
+
+.blog-wrapper.blog-1 .single-blog-item {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.blog-wrapper.blog-1 .single-blog-item .image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  min-height: 0;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-wrapper.blog-1 .single-blog-item .image > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Home servicios (service-1): máscara + foto centrada, sin desalineo del asset */
+.service-wrapper.service-1 .single-service-item .image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 424 / 518;
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.service-wrapper.service-1 .single-service-item .image > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* image popup */
 img.mfp-img {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
