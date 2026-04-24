@@ -861,3 +861,24 @@ html[data-theme="dark"] .choose-us-1 .choose-us-content .icon-box .single-icon-b
     text-align: center;
   }
 }
+
+/* About / choose-us-3: la plantilla animaba shape-2 (spinner) y shape-3 (zoom) — dejar imágenes estáticas */
+.choose-us-3 .choose-us-images .single-choose-item .shape-2,
+.choose-us-3 .choose-us-images .single-choose-item .shape-3 {
+  animation: none !important;
+  transform: none !important;
+}
+/* Fondos de tarjeta (::before/::after): sin animación; solo el hover/activo de la plantilla */
+.choose-us-3 .choose-us-images .single-choose-item::before,
+.choose-us-3 .choose-us-images .single-choose-item::after {
+  animation: none !important;
+  background-attachment: scroll;
+}
+/* Títulos “Misión / Visión…” visibles con el bloque claro/oscuro */
+html[data-theme="dark"] .choose-us-3 .choose-us-images .single-choose-item > h4 {
+  color: #e8ecf4 !important;
+}
+html[data-theme="dark"] .choose-us-3 .choose-us-images .single-choose-item {
+  background-color: rgba(16, 23, 40, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
