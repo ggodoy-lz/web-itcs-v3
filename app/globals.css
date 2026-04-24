@@ -65,6 +65,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 .about-wrapper.about-dark-page .section-title h2 {
@@ -717,5 +718,146 @@ body.offcanvas-menu-open {
   }
   .split-text {
     opacity: 1 !important;
+  }
+}
+
+/* —— Contraste sobre fotos / fondos: en dark, --white es color de superficie, no texto claro —— */
+.about-2 .bg-image {
+  z-index: 0;
+  isolation: isolate;
+}
+/* Oscurece el mapa/hero para que títulos y copy legibles */
+.about-2 .bg-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 8, 24, 0.55) 0%,
+    rgba(2, 6, 18, 0.72) 100%
+  );
+}
+.about-2 .container {
+  position: relative;
+  z-index: 2;
+}
+/* Texto e intro siempre claro (no depender de --white en dark) */
+.about-2 .about-content > p,
+.about-2 .about-content p.text-center {
+  color: rgba(248, 250, 255, 0.94) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.about-2 .about-content .infu .contact-us .text span {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+.about-2 .about-content .infu .contact-us .text h4 {
+  color: #f8faff !important;
+}
+.about-2 .about-content .section-title .sub-title2 {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(0, 12, 40, 0.45);
+  backdrop-filter: blur(6px);
+}
+html[data-theme="dark"] .process-1 .section-title h2,
+html[data-theme="dark"] .process-1 .section-title h2 .split-line,
+html[data-theme="dark"] .process-1 .section-title h2 .split-line span {
+  color: #f0f3fa !important;
+}
+html[data-theme="dark"] .process-1 .process-items .single-process-item h4 {
+  color: #f2f5fc !important;
+}
+html[data-theme="dark"] .process-1 .process-items .single-process-item p {
+  color: rgba(240, 245, 255, 0.9) !important;
+}
+/* Espacio entre pasos (móvil) */
+@media (max-width: 991.98px) {
+  .process-1 .process-items {
+    gap: 1.5rem 0 !important;
+  }
+  .process-1 .process-items .single-process-item {
+    margin-bottom: 1.25rem;
+  }
+  .process-1 .process-items .single-process-item p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* «Por qué iTCS»: títulos de bloques (color fijo de plantilla) + cabecera sticky */
+.choose-us-1 .choose-us-content .icon-box .single-icon-box h4 {
+  color: #071247;
+}
+html[data-theme="dark"] .choose-us-1 .choose-us-content .icon-box .single-icon-box h4 {
+  color: var(--dm-headings) !important;
+}
+@media (max-width: 991.98px) {
+  .choose-us-1 {
+    padding-top: 2.25rem;
+  }
+  .choose-us-1 .choose-us-content .section-title h2,
+  .choose-us-1 .choose-us-content h2 {
+    scroll-margin-top: 6.5rem;
+  }
+  .choose-us-1 .choose-us-images {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Case study home: título nunca bajo el carrusel; tarjeta bajo el logo, no encima del copy */
+@media (max-width: 991.98px) {
+  .case-study-1 .shape-1 {
+    z-index: 0;
+    opacity: 0.4;
+  }
+  .case-study-1 .section-title-area {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+  }
+  .case-study-1 .case-study-inner {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.75rem;
+    clear: both;
+  }
+  .case-study-1.it-case-brands .single-case-item {
+    padding-bottom: 1.25rem;
+  }
+  .case-study-1.it-case-brands .single-case-item .image {
+    position: relative;
+    z-index: 0;
+  }
+  .case-study-1.it-case-brands .single-case-item .content {
+    position: relative !important;
+    left: 0 !important;
+    right: auto;
+    bottom: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100%;
+    margin-top: 0.75rem;
+    box-sizing: border-box;
+  }
+  .case-study-1.it-case-brands .single-case-item .content .title {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* Evitar superposición del slide (centrado) con el título: más aire bajo el bloque título en móvil */
+@media (max-width: 767.98px) {
+  .case-study-1 .section-title-area {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+  .case-study-1 .section-title-area .section-title,
+  .case-study-1 .section-title-area p {
+    width: 100%;
+    text-align: center;
   }
 }
