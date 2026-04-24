@@ -1,4 +1,5 @@
 "use client";
+import ItcsThemeLogo from "@/components/ItcsThemeLogo";
 import ThemeToggle from "@/components/ThemeToggle";
 import { zotechUtility } from "@/utility";
 import Link from "next/link";
@@ -78,12 +79,7 @@ const Header1 = () => {
               <div className="header-main ">
                 <div className="header-left">
                   <div className="logo">
-                    <Link href="/" className="header-logo">
-                      <img
-                        src="assets/img/logo/black-logo.png"
-                        alt="logo-img"
-                      />
-                    </Link>
+                    <ItcsThemeLogo variant="adaptive" linkClass="header-logo site-theme-logo" />
                   </div>
                 </div>
                 <div className="header-right">
@@ -120,13 +116,14 @@ const Header2 = () => {
         <div className="container">
           <div className="mega-menu-wrapper">
             <div className="header-main ">
-              <div className="header-left">
-                <div className="logo">
-                  <Link href="/" className="header-logo">
-                    <img src="assets/img/logo/white-logo.png" alt="logo-img" />
-                  </Link>
+                <div className="header-left">
+                  <div className="logo">
+                    <ItcsThemeLogo
+                      variant="darkOnly"
+                      linkClass="header-logo site-theme-logo"
+                    />
+                  </div>
                 </div>
-              </div>
               <div className="header-right">
                 <div className="mean__menu-wrapper">
                   <div className="main-menu">
@@ -223,12 +220,10 @@ const Header3 = () => {
               <div className="header-main ">
                 <div className="header-left">
                   <div className="logo">
-                    <Link href="/" className="header-logo">
-                      <img
-                        src="assets/img/logo/white-logo-2.png"
-                        alt="logo-img"
-                      />
-                    </Link>
+                    <ItcsThemeLogo
+                      variant="darkOnly"
+                      linkClass="header-logo site-theme-logo"
+                    />
                   </div>
                   <div className="mean__menu-wrapper">
                     <Menu />
@@ -265,23 +260,21 @@ const Header4 = () => {
         <div className="container-fluid">
           <div className="mega-menu-wrapper">
             <div className="header-main ">
-              <div className="header-left">
-                <div className="logo">
-                  <Link href="/" className="header-logo">
-                    <img
-                      src="assets/img/logo/white-logo-2.png"
-                      alt="logo-img"
+                <div className="header-left">
+                  <div className="logo">
+                    <ItcsThemeLogo
+                      variant="darkOnly"
+                      linkClass="header-logo site-theme-logo"
                     />
-                  </Link>
-                </div>
-                <div className="mean__menu-wrapper">
-                  <div className="main-menu">
-                    <nav id="mobile-menu">
-                      <Menu />
-                    </nav>
+                  </div>
+                  <div className="mean__menu-wrapper">
+                    <div className="main-menu">
+                      <nav id="mobile-menu">
+                        <Menu />
+                      </nav>
+                    </div>
                   </div>
                 </div>
-              </div>
               <div className="header-right">
                 <div className="contact-us d-flex align-items-center">
                   <a href className="icon">
@@ -393,8 +386,8 @@ const MobileMenu = () => {
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
-                  <Link href="/">
-                    <img src="assets/img/logo/black-logo.png" alt="logo-img" />
+                  <Link href="/" className="d-inline-block">
+                    <ItcsThemeLogo variant="adaptive" withLink={false} />
                   </Link>
                 </div>
                 <div className="offcanvas__close">

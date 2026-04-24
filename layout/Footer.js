@@ -1,3 +1,4 @@
+import ItcsThemeLogo from "@/components/ItcsThemeLogo";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -29,8 +30,8 @@ const Footer1 = () => {
             >
               <div className="single-footer-widget me-xxl-5 pe-xxl-4">
                 <div className="widget-head">
-                  <Link href="/">
-                    <img src="assets/img/logo/black-logo.png" alt="logo-img" />
+                  <Link href="/" className="d-inline-block">
+                    <ItcsThemeLogo variant="adaptive" withLink={false} />
                   </Link>
                 </div>
                 <div className="footer-content">
@@ -221,7 +222,7 @@ const Footer1 = () => {
 const Footer2 = () => {
   return (
     <footer className="footer-wrapper">
-      <FooterContent logo="assets/img/logo/white-logo.png" />
+      <FooterContent logo="assets/img/logo/logo-itcs-blanco-300x122.png.webp" />
     </footer>
   );
 };
@@ -313,14 +314,20 @@ const Footer4 = ({ cta }) => {
             </div>
           </div>
         </div>
-        <FooterContent logo="assets/img/logo/white-logo.png" />
+        <FooterContent logo="assets/img/logo/logo-itcs-blanco-300x122.png.webp" />
       </footer>
     </Fragment>
   );
 };
 
+const logoIsOnDark = (path) =>
+  path &&
+  (path.includes("blanco") ||
+    path.includes("white") ||
+    path.includes("itcs-blanco"));
+
 const FooterContent = ({
-  logo = "assets/img/logo/black-logo.png",
+  logo = "assets/img/logo/logo-itcs.webp",
   layout = "style-2",
 }) => {
   const services = [
@@ -375,8 +382,12 @@ const FooterContent = ({
             >
               <div className="single-footer-widget">
                 <div className="widget-head">
-                  <Link href="/">
-                    <img src={logo} alt="logo-img" />
+                  <Link href="/" className="d-inline-block site-footer-logo">
+                    {logoIsOnDark(logo) ? (
+                      <ItcsThemeLogo variant="darkOnly" withLink={false} />
+                    ) : (
+                      <ItcsThemeLogo variant="adaptive" withLink={false} />
+                    )}
                   </Link>
                 </div>
                 <div className="footer-content">
