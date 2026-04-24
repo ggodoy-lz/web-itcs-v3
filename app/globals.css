@@ -1064,3 +1064,58 @@ html[data-theme="dark"] .single-contact-card:hover span {
 html[data-theme="dark"] .single-contact-card:hover h4 {
   color: var(--dm-headings) !important;
 }
+
+/* —— iTCS: sitio entero — sin “movimiento” al hover (transición, keyframes, zoom) ——
+ * 1) La plantilla pone `transition: all` en el estado *base*; sin esto, el hover aún se anima.
+ * 2) `*:hover` y descendientes: sin transición/animación; imágenes/iconos sin transform.
+ *    No afecta a WOW/entrada: solo estados :hover, no a carruseles (transición en .slick/.swiper track).
+ */
+html body a[href],
+html body button,
+html body .theme-btn,
+html body .header-main a,
+html body .submenu a,
+html body .features-1 .single-feature-item,
+html body .service-1 .service-inner .single-service-item,
+html body .service-2 .signle-service-item,
+html body .service-3 .single-service-item,
+html body .service-4 .signle-service-item,
+html body .blog-1 .blog-inner .single-blog-item,
+html body .case-study-1 .single-case-item,
+html body .team-1 .single-team-item,
+html body .process-1 .single-process-item,
+html body .choose-us-1 .icon-box .single-icon-box,
+html body .choose-us-3 .choose-us-images .single-choose-item,
+html body .single-contact-card,
+html body .array-button .array-prev,
+html body .array-button .array-next,
+html body .mean-nav a,
+html body .blog-details-wrapper .page-nav-wrap a,
+html body .de-btn {
+  transition: none !important;
+  -webkit-transition: none !important;
+  transition-property: none !important;
+}
+html body *:hover,
+html body *:hover::before,
+html body *:hover::after,
+html body *:hover * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  transition-property: none !important;
+  transition-duration: 0s !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+}
+/* Zoom / bounce en imágenes e iconos bajo un ancestro o sobre el propio nodo */
+html body *:hover img,
+html body *:hover svg,
+html body img:hover,
+html body *:hover .icon,
+html body *:hover i {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+}
