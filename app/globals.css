@@ -629,10 +629,10 @@ html[data-theme="dark"] .service-4 .signle-service-item {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
 }
 html[data-theme="dark"] .service-4 .signle-service-item h4 a {
-  color: var(--dm-headings) !important;
+  color: #f0f3fb !important;
 }
 html[data-theme="dark"] .service-4 .signle-service-item p {
-  color: var(--dm-text) !important;
+  color: rgba(240, 243, 251, 0.92) !important;
 }
 html[data-theme="dark"] .service-4 .section-title p {
   color: var(--dm-text) !important;
@@ -881,4 +881,47 @@ html[data-theme="dark"] .choose-us-3 .choose-us-images .single-choose-item > h4 
 html[data-theme="dark"] .choose-us-3 .choose-us-images .single-choose-item {
   background-color: rgba(16, 23, 40, 0.92) !important;
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Página Servicios (service-4): .service-bg siempre visible (antes solo en hover) */
+.service-4 .signle-service-item .service-bg {
+  height: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+/* Texto sobre la foto: siempre claro (overlay de la plantilla) */
+.service-4 .signle-service-item h4 a,
+.service-4 .signle-service-item p,
+.service-4 .signle-service-item .infu-btn {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.service-4 .signle-service-item h4 a {
+  color: #f0f3fb !important;
+}
+.service-4 .signle-service-item p {
+  color: rgba(240, 243, 251, 0.92) !important;
+}
+.service-4 .signle-service-item .infu-btn {
+  color: #f0f3fb !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+}
+.service-4 .signle-service-item .icon i,
+.service-4 .signle-service-item:hover .icon i {
+  animation: none !important;
+}
+/* Hover: mismo aspecto (sin transición de fondo ni icono) */
+.service-4 .signle-service-item:hover .service-bg {
+  height: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+/* Formas decorativas de la sección: sin giro / zoom */
+.service-4 .shape-1,
+.service-4 .shape-2,
+.service-4 .shape-3 {
+  animation: none !important;
+  transform: none !important;
 }
