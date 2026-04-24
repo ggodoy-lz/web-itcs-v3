@@ -944,11 +944,12 @@ html[data-theme="dark"] .choose-us-3 .choose-us-images .single-choose-item {
 }
 
 /* —— iTCS: sin efectos hover en tarjetas / imágenes (la plantilla tapaba fotos o animaba iconos) —— */
-/* Home service-1: .shape-3/4 al hover cubren la imagen; mantener invisibles */
+/* Home service-1: formas al hover tapan o “cambian” la foto — no se pintan */
 .service-1 .service-inner .single-service-item .shape-3,
 .service-1 .service-inner .single-service-item .shape-4,
 .service-1 .service-inner .single-service-item:hover .shape-3,
 .service-1 .service-inner .single-service-item:hover .shape-4 {
+  display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
@@ -999,19 +1000,55 @@ html[data-theme="dark"] .features-1 .single-feature-item:hover li,
 html[data-theme="dark"] .features-1 .single-feature-item:hover li i {
   color: var(--dm-text) !important;
 }
-/* Case study: sin zoom en la imagen ni shine */
-.case-study-1 .single-case-item:hover img,
-.case-study-1.style-2 .single-case-item:hover img {
+/* Case study: misma imagen, sin zoom; el ::before de la plantilla hace un “barrido” al hover */
+.case-study-1 .single-case-item .image img,
+.case-study-1 .single-case-item:hover .image img,
+.case-study-1.style-2 .single-case-item .image img,
+.case-study-1.style-2 .single-case-item:hover .image img {
   transform: none !important;
-  scale: none !important;
+  scale: 1 !important;
+  -webkit-transform: none !important;
 }
 .case-study-1 .single-case-item:hover .image::before {
   -webkit-animation: none !important;
   animation: none !important;
+  top: -125% !important;
 }
-/* Blog: sin transform en la imagen al hover */
+/* Blog: la plantilla pone 2.ª <img> que se abre al hover (parece otra foto) */
+.blog-1 .blog-inner .single-blog-item .image img:nth-child(2),
+.blog-1 .blog-inner .single-blog-item:hover .image img:nth-child(2) {
+  display: none !important;
+  width: 0 !important;
+  max-width: 0 !important;
+  min-width: 0 !important;
+  height: 0 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+/* Blog: primera imagen sin movimiento al hover */
+.blog-1 .blog-inner .single-blog-item .image img:first-of-type,
+.blog-1 .blog-inner .single-blog-item:hover .image img:first-of-type,
 .blog-1 .blog-inner .single-blog-item:hover .image img {
   transform: none !important;
+  scale: 1 !important;
+  -webkit-transform: none !important;
+}
+/* Service-1/4 y otros: la foto de la tarjeta no hace zoom al pasar el ratón */
+.service-1 .service-inner .single-service-item .image img,
+.service-1 .service-inner .single-service-item:hover .image img,
+.service-4 .signle-service-item .image img,
+.service-4 .signle-service-item:hover .image img,
+.process-1 .process-items .single-process-item .image img,
+.process-1 .process-items .single-process-item:hover .image img,
+.team-1 .single-team-item .team-image .image img,
+.team-1 .single-team-item:hover .team-image .image img {
+  transform: none !important;
+  scale: 1 !important;
+  -webkit-transform: none !important;
 }
 /* service-2 / 3: icono y título */
 .service-2 .service-inner .service-items .signle-service-item:hover .icon {
