@@ -34,6 +34,21 @@ html body .service-1 .service-inner .single-service-item:hover .image img {
   transition: none !important;
 }
 
+/* Team-1 (home “Perfiles técnicos”): formas .shape-2/3 al hover tapan la foto (mismo patrón que service-1) */
+html body .team-1 .single-team-item .shape .shape-2,
+html body .team-1 .single-team-item .shape .shape-3,
+html body .team-1 .single-team-item:hover .shape .shape-2,
+html body .team-1 .single-team-item:hover .shape .shape-3,
+html body .team-1 .single-team-item img.shape-2,
+html body .team-1 .single-team-item img.shape-3,
+html body .team-1 .single-team-item:hover img.shape-2,
+html body .team-1 .single-team-item:hover img.shape-3 {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 /* Blog: refuerzo (main.css ya oculta la 2.ª) */
 html body .blog-1 .blog-inner .single-blog-item .image img,
 html body .blog-1 .blog-inner .single-blog-item:hover .image img {

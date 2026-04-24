@@ -1085,11 +1085,14 @@ html[data-theme="dark"] .features-1 .single-feature-item:hover li i {
   -webkit-background-clip: initial !important;
   background-clip: border-box !important;
 }
-/* Equipo: formas decorativas sin movimiento al hover */
-.team-1 .single-team-item:hover .shape-2,
-.team-1 .single-team-item:hover .shape-3 {
-  animation: none !important;
-  transform: none !important;
+/* Team-1 “Perfiles técnicos”: formas no deben tapar la foto (refuerzo; ver main + itcs-image-hover-lock) */
+.team-1 .single-team-item .shape img.shape-2,
+.team-1 .single-team-item .shape img.shape-3,
+.team-1 .single-team-item:hover .shape img.shape-2,
+.team-1 .single-team-item:hover .shape img.shape-3 {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 /* Tarjetas de contacto: sin franja con gradiente al hover */
 .single-contact-card:hover::after {

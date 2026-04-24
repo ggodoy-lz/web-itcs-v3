@@ -5829,14 +5829,14 @@ input.main-search-input::placeholder {
   visibility: visible;
   transform: translate3d(0, 0, 0);
 }
+/* iTCS: no tapar la foto con formas al hover (team “Perfiles técnicos”) */
 .team-1 .single-team-item:hover .shape-2 {
-  top: -2px;
-  opacity: 1;
-  left: -30px;
+  opacity: 0;
+  visibility: hidden;
 }
 .team-1 .single-team-item:hover .shape-3 {
-  opacity: 1;
-  right: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 .team-1 .single-team-item .content p {
   color: var(--theme-2);

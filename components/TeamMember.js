@@ -142,18 +142,7 @@ export const TeamMember2 = () => {
               data-wow-delay={member.delay}
             >
               <div className="single-team-item">
-                <div className="shape">
-                  <img
-                    className="shape-2"
-                    src="assets/img/team/shape-1.png"
-                    alt
-                  />
-                  <img
-                    className="shape-3"
-                    src="assets/img/team/shape-2.png"
-                    alt
-                  />
-                </div>
+                {/* Sin capas .shape-2/3: el tema las mostraba al hover y tapaban la foto. */}
                 <div className="team-image">
                   <div className="image">
                     <img src={member.image} alt="Equipo iTCS" />
