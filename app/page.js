@@ -591,29 +591,11 @@ const page = () => {
         </section>
         {/* Process Section Start */}
         <section
-          className="process-wrapper process-1 section-padding bg-cover"
+          className="process-wrapper process-1 itcs-process-1 section-padding bg-cover"
           style={{ backgroundImage: "url(assets/img/process/process-bg.jpg)" }}
         >
-          <div className="shape">
-            <img className="shape-1" src="assets/img/process/shape-1.png" alt />
-            <img className="shape-2" src="assets/img/process/shape-2.png" alt />
-            <img className="shape-3" src="assets/img/process/shape-3.png" alt />
-            <img
-              className="shape-4 d-none d-xxl-block"
-              src="assets/img/process/shape-4.png"
-              alt
-            />
-            <img
-              className="shape-5 d-none d-xxl-block"
-              src="assets/img/process/shape-5.png"
-              alt
-            />
-          </div>
           <div className="container">
             <div className="section-title text-center">
-              <div className="sub-title sub-title2">
-                <span className="text-white">CÓMO TRABAJAMOS</span>
-              </div>
               <h2 className="text-white split-text left">
                 Tres pasos hacia <br />
                 su solución de TI

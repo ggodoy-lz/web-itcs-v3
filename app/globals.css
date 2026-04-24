@@ -662,13 +662,59 @@ body.offcanvas-menu-open {
   }
 }
 
+/* Proceso (home “Tres pasos”): más sobrio — velo sobre fondo/fotos, menos aire, sin formas en page.js */
+.process-1.itcs-process-1 {
+  isolation: isolate;
+}
+.process-1.itcs-process-1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(1, 4, 18, 0.8) 0%,
+    rgba(2, 10, 28, 0.88) 50%,
+    rgba(0, 2, 10, 0.92) 100%
+  );
+}
+.process-1.itcs-process-1 .container {
+  position: relative;
+  z-index: 1;
+}
+.process-1.itcs-process-1 .process-items .single-process-item .image {
+  position: relative;
+}
+.process-1.itcs-process-1 .process-items .single-process-item .image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+.process-1.itcs-process-1 .process-items {
+  padding-top: 48px;
+  padding-bottom: 100px;
+}
+@media (min-width: 1400px) {
+  .process-1.itcs-process-1 .process-items {
+    padding-bottom: 120px;
+  }
+}
+
 /* Proceso (home): menos relleno inferior en móvil */
 @media (max-width: 991.98px) {
-  .process-1 .process-items {
-    padding-bottom: 72px !important;
-    padding-top: 40px !important;
+  .process-1.itcs-process-1 .process-items {
+    padding-bottom: 64px !important;
+    padding-top: 32px !important;
   }
-  .process-1 .process-items .single-process-item .image {
+  .process-1.itcs-process-1 .process-items .single-process-item .image {
     height: auto;
     min-height: 220px;
     aspect-ratio: 372 / 333;
@@ -734,26 +780,26 @@ body.offcanvas-menu-open {
   background: rgba(0, 12, 40, 0.45);
   backdrop-filter: blur(6px);
 }
-html[data-theme="dark"] .process-1 .section-title h2,
-html[data-theme="dark"] .process-1 .section-title h2 .split-line,
-html[data-theme="dark"] .process-1 .section-title h2 .split-line span {
+html[data-theme="dark"] .process-1.itcs-process-1 .section-title h2,
+html[data-theme="dark"] .process-1.itcs-process-1 .section-title h2 .split-line,
+html[data-theme="dark"] .process-1.itcs-process-1 .section-title h2 .split-line span {
   color: #f0f3fa !important;
 }
-html[data-theme="dark"] .process-1 .process-items .single-process-item h4 {
+html[data-theme="dark"] .process-1.itcs-process-1 .process-items .single-process-item h4 {
   color: #f2f5fc !important;
 }
-html[data-theme="dark"] .process-1 .process-items .single-process-item p {
+html[data-theme="dark"] .process-1.itcs-process-1 .process-items .single-process-item p {
   color: rgba(240, 245, 255, 0.9) !important;
 }
 /* Espacio entre pasos (móvil) */
 @media (max-width: 991.98px) {
-  .process-1 .process-items {
+  .process-1.itcs-process-1 .process-items {
     gap: 1.5rem 0 !important;
   }
-  .process-1 .process-items .single-process-item {
+  .process-1.itcs-process-1 .process-items .single-process-item {
     margin-bottom: 1.25rem;
   }
-  .process-1 .process-items .single-process-item p {
+  .process-1.itcs-process-1 .process-items .single-process-item p {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
