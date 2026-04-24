@@ -3,7 +3,6 @@ import Blog from "@/components/Blog";
 import ChooseUs from "@/components/ChooseUs";
 import Pagebanner from "@/components/Pagebanner";
 import BrandSlider from "@/components/slider/BrandSlider";
-import TextSlider, { TextSlider2 } from "@/components/slider/TextSlider";
 import { TeamMember2 } from "@/components/TeamMember";
 import ZotechLayout from "@/layout/ZotechLayout";
 const page = () => {
@@ -11,14 +10,6 @@ const page = () => {
     <ZotechLayout>
       <Pagebanner pageName="Quiénes somos" />
       <AboutMe />
-      <div className="marquee-section section-padding pt-4">
-        <div className="marque-wrapper">
-          <TextSlider />
-        </div>
-        <div className="marque-wrapper style-2 mt-3 ">
-          <TextSlider2 />
-        </div>
-      </div>
       {/* Team Section Start */}
       <TeamMember2 />
       {/* Choose-us Section Start */}
