@@ -1,0 +1,27 @@
+{
+  "name": "web-itcs-v3",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname localhost --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "brand-assets": "node scripts/populate-brand-assets.mjs",
+    "stock-images": "node scripts/fetch-stock-images.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7",
+    "next": "^14.2.23",
+    "react": "^18.3.1",
+    "react-bootstrap": "^1.6.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.3.1",
+    "react-visibility-sensor": "^5.1.1",
+    "swiper": "^11.2.6",
+    "wowjs": "^1.1.3"
+  },
+  "devDependencies": {
+    "simple-icons": "^16.17.0"
+  }
+}

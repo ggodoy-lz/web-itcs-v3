@@ -1,0 +1,567 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+.swiper-dot .swiper-pagination-bullet:not(:last-child) {
+  margin-right: 15px !important;
+}
+
+.price-ranger {
+  width: 100%;
+}
+
+.slider-container {
+  position: relative;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.slider-container input[type="range"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  -webkit-appearance: none;
+  z-index: 3;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-2) 100%);
+  cursor: pointer;
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 4;
+}
+
+.slider-track {
+  position: absolute;
+  height: 8px;
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  color: #222222;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.slider-range {
+  position: absolute;
+  height: 8px;
+  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-2) 100%);
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.search-wrap {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.about-wrapper.about-dark-page .section-title h2 {
+  color: #fff;
+}
+
+.about-page-blog.blog-1 .blog-inner {
+  padding-bottom: 0px;
+}
+
+/* image popup */
+img.mfp-img {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  max-height: 392px;
+  padding: 0 !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mfp-img-container .mfp-close {
+  top: -110px;
+  right: -24px;
+}
+
+/* Productos: evitar solapamiento (service-4 fija 310px) + logos de marca en el recuadro */
+.service-4.products-page .signle-service-item {
+  height: auto;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 32px;
+}
+
+.service-4.products-page .signle-service-item .product-card__desc {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+.service-4.products-page .signle-service-item .icon.icon--brand {
+  font-size: 0;
+  overflow: hidden;
+}
+
+.service-4.products-page .signle-service-item .icon.icon--brand .product-brand-logo {
+  display: block;
+  transform: rotate(45deg);
+  max-width: 42px;
+  max-height: 42px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.service-4.products-page .product-card__meta {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  font-weight: 600;
+  margin: 0 0 4px;
+  max-width: 100%;
+  padding: 0 4px;
+}
+
+/* CTA .cta-1 trae margin-top: -220px (home); en productos no debe superponerse a las tarjetas */
+.cta-1.products-cta-standalone {
+  margin-top: 0;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Home: tarjetas de servicios (features-1) — altura fija 373px hacía overflow del texto */
+.features-1.home-features-it .single-feature-item {
+  height: auto;
+  min-height: 360px;
+}
+
+/* Contacto: CTA bajo el mapa sin margin negativo que lo superponga */
+.cta-2.style-3.cta-contact-map {
+  margin-bottom: 0;
+  padding-bottom: 80px;
+}
+
+/* Home case-study: logos de marca (coherente con título) en vez de fotos de stock */
+.case-study-1.it-case-brands .single-case-item .image {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #f2f5fc 0%, #fff 100%);
+  mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 536 475"  xmlns="http://www.w3.org/2000/svg"><path d="M0 103.277C0 97.0519 2.89825 91.1821 7.84034 87.3976L116.589 4.12101C120.079 1.44834 124.353 0 128.749 0H516C527.046 0 536 8.95431 536 20V455C536 466.046 527.046 475 516 475H20C8.95432 475 0 466.046 0 455V103.277Z"/> </svg>');
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.case-study-1.it-case-brands .single-case-item .image::before {
+  display: none;
+}
+
+.case-study-1.it-case-brands .single-case-item .image img {
+  width: auto;
+  max-width: 72%;
+  height: auto;
+  max-height: 52px;
+  object-fit: contain;
+  border-radius: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.case-study-1.it-case-brands .single-case-item .content .title h4 a {
+  line-height: 1.3;
+}
+
+/* —— Partners (home): bloque más grande y logos más legibles —— */
+.brand-section-xl {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+@media (max-width: 991px) {
+  .brand-section-xl {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+}
+
+.brand-section-xl .brand-inner h3 {
+  font-size: clamp(1.75rem, 2.2vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.brand-section-xl .brand-1 .brand-inner .brand-logo img {
+  height: auto;
+  min-height: 40px;
+  max-height: 60px;
+}
+
+.brand-section-xl .brand-slider--lg {
+  margin-top: 0.5rem;
+}
+
+/* —— Services / proceso 4 etapas (process-2): siluetas con position absolute invadían otras columnas —— */
+.process-2 .row [class*="col-"] {
+  overflow: hidden;
+}
+.process-2 .signle-process-item {
+  overflow: hidden;
+  border-radius: 4px;
+}
+/* Quitar imágenes decorativas (rotan y generan manchas/“fotos” superpuestas) */
+.process-2 .signle-process-item > img.shape-1,
+.process-2 .signle-process-item > img.shape-2 {
+  display: none;
+}
+
+/* Perfiles técnicos (home): títulos y descripciones legibles en ambos temas */
+.team-1 .team-card__role {
+  font-weight: 700;
+  color: var(--black-2, #1a1f2b);
+  margin-bottom: 0.35rem;
+}
+.team-1 .team-card__byline {
+  color: #5a6678;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Topbar: modo claro/oscuro */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.theme-toggle i {
+  font-size: 16px;
+}
+
+/* —— Modo oscuro: paleta (fondos azul-oscuro, acentos índigo / violeta / azul) ——
+   --white se usa en el template como FONDO de bloques: en dark = superficie. */
+html[data-theme="dark"] {
+  /* Fondos (de tu paleta: navy casi negro, carbón, pizarra) */
+  --dm-bg-page: #070a12;
+  --dm-bg-elevated: #0c101c;
+  --dm-bg-section: #0a0e18;
+  --dm-surface: #101728;
+  --dm-surface-2: #141e32;
+  /* Acentos: índigo, violeta, azul real + acero para bordes */
+  --dm-accent-1: #5c6cff;
+  --dm-accent-2: #8b6dff;
+  --dm-accent-3: #3b8cff;
+  --dm-steel: #5a6d8a;
+  /* Texto: contraste AA sobre fondos oscuros */
+  --dm-text: #c9d0e0;
+  --dm-text-muted: #8f9bb3;
+  --dm-headings: #e8ecf4;
+
+  --body: #070a12;
+  --bg: #0a0e18;
+  --white: #101728;
+  --white-2: #121c30;
+  --white-3: rgba(255, 255, 255, 0.72);
+  --theme: #4da3ff;
+  --theme-2: #2f6ff2;
+  --theme-3: #151c2e;
+  --theme-4: #9a6dff;
+  --header: #e4e8f0;
+  --text: #adb6ca;
+  --text-2: #8590a4;
+  --black-2: #dce0eb;
+  --base: #c7d31c;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-2: rgba(255, 255, 255, 0.07);
+  --ratting: #f8bc26;
+  ---box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--dm-bg-page) !important;
+  color: var(--text) !important;
+}
+
+/* Hero y CTAs: texto blanco literal sobre imagen o gradiente */
+html[data-theme="dark"] .hero-1 .hero-content h1,
+html[data-theme="dark"] .hero-1 .hero-content p,
+html[data-theme="dark"] .hero-1 .hero-content .infu p,
+html[data-theme="dark"] .hero-1 .hero-content .infu h3,
+html[data-theme="dark"] .hero-1 .hero-content .feedback span {
+  color: #f8faff !important;
+}
+
+/* Botones con gradiente: texto claro */
+html[data-theme="dark"] .theme-btn:not(.white-btn):not(.trasparent-btn) {
+  color: #f8faff !important;
+}
+
+html[data-theme="dark"] .theme-btn:hover {
+  color: #e6ecff !important;
+}
+
+/* Botón blanco inverso (header / contacto) */
+html[data-theme="dark"] .theme-btn.white-btn {
+  background: #e4e8f0 !important;
+  color: #0b1220 !important;
+}
+
+html[data-theme="dark"] .theme-btn.white-btn:hover {
+  color: #0b1220 !important;
+}
+
+/* Topbar: el tema usa --header como fondo; forzamos barra casi negra y enlaces legibles */
+html[data-theme="dark"] .topbar {
+  background: #04060c !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .topbar .topbar-inner ul li a,
+html[data-theme="dark"] .topbar .topbar-inner .social a {
+  color: rgba(244, 246, 255, 0.88) !important;
+  opacity: 0.9 !important;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f2fa;
+}
+
+/* Sticky + cabecera */
+html[data-theme="dark"] .sticky {
+  background: rgba(7, 10, 20, 0.92) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .header-1 .header-logo img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+/* Submenú y offcanvas */
+html[data-theme="dark"] .header-main .main-menu ul li .submenu {
+  background: #121a2a !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .header-main .main-menu ul li .submenu li a {
+  color: #dce1ec !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-theme="dark"] .offcanvas__info {
+  background: #0e1422 !important;
+  border-color: var(--theme-2) !important;
+}
+
+/* Buscador: popup si usa fondo blanco en theme */
+html[data-theme="dark"] .search-wrap {
+  background: rgba(10, 14, 24, 0.97) !important;
+}
+
+/* Tarjetas y bloques que heredan var(--white) */
+html[data-theme="dark"] .single-feature-item,
+html[data-theme="dark"] .single-feature-item:hover {
+  background: var(--dm-surface) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-theme="dark"] .section-bg {
+  background-color: var(--dm-bg-section) !important;
+}
+
+html[data-theme="dark"] .section-bg-2 {
+  background: #0b101e !important;
+}
+
+html[data-theme="dark"] .case-study-1.it-case-brands .single-case-item .image {
+  background: linear-gradient(160deg, #141c2c 0%, #0c121f 100%) !important;
+}
+
+html[data-theme="dark"] .single-case-item .content {
+  background: #0a111f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .single-case-item .content .title span {
+  color: var(--dm-accent-3) !important;
+}
+
+html[data-theme="dark"] .footer-wrapper,
+html[data-theme="dark"] .footer-bottom {
+  background: #04060c !important;
+  color: var(--dm-text) !important;
+}
+
+html[data-theme="dark"] .footer-wrapper .footer-content p,
+html[data-theme="dark"] .footer-wrapper .footer-content a {
+  color: var(--dm-text-muted) !important;
+}
+
+html[data-theme="dark"] .footer-wrapper h4,
+html[data-theme="dark"] .footer-wrapper h5 {
+  color: var(--dm-headings) !important;
+}
+
+html[data-theme="dark"] .footer-wrapper a:hover {
+  color: var(--theme) !important;
+}
+
+/* CTA y bandas con gradiente: mantener legibles */
+html[data-theme="dark"] .cta-2 .cta-inner {
+  box-shadow: 0 8px 40px rgba(45, 90, 200, 0.25);
+}
+
+/* Formularios */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .nice-select {
+  background: #121a2a !important;
+  color: var(--dm-text) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Brand strip en dark: título nítido + logos en tarjeta clara (contraste con PNG/SVG oscuros) */
+html[data-theme="dark"] .brand-1 {
+  background: var(--dm-bg-elevated) !important;
+}
+
+html[data-theme="dark"] .brand-1 .brand-inner h3 {
+  color: var(--dm-headings) !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .brand-1 .brand-inner .brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 10px 18px;
+  background: linear-gradient(180deg, #f4f6fb 0%, #e8edf6 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="dark"] .brand-1 .brand-inner .brand-logo img {
+  height: auto;
+  max-height: 52px;
+  min-height: 32px;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+}
+
+/* Perfiles técnicos: contraste en modo oscuro */
+html[data-theme="dark"] .team-1 .container > p.text-center {
+  color: var(--dm-text) !important;
+}
+html[data-theme="dark"] .team-1 .team-card__role {
+  color: var(--dm-headings) !important;
+}
+html[data-theme="dark"] .team-1 .team-card__byline {
+  color: var(--dm-text) !important;
+}
+
+/* Proceso 4 etapas (página Servicios): iconos y textos sobre fondo oscuro */
+html[data-theme="dark"] .process-2 .signle-process-item .icons .icon-1 {
+  background: var(--dm-surface) !important;
+  color: var(--dm-accent-3) !important;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
+}
+html[data-theme="dark"] .process-2 .signle-process-item h4 {
+  color: var(--dm-headings) !important;
+}
+html[data-theme="dark"] .process-2 .signle-process-item p {
+  color: var(--dm-text) !important;
+}
+
+/* Case study home: párrafo bajo el título + tarjetas carrusel */
+html[data-theme="dark"] .case-study-1 .section-title-area p {
+  color: var(--dm-text) !important;
+}
+html[data-theme="dark"] .case-study-1 .section-title-area h2 {
+  color: var(--dm-headings) !important;
+}
+html[data-theme="dark"] .case-study-1.it-case-brands .single-case-item .content .title h4 a {
+  color: #e8ecf4 !important;
+}
+html[data-theme="dark"] .case-study-1.it-case-brands .single-case-item .content .title span {
+  color: var(--dm-accent-3) !important;
+}
+html[data-theme="dark"] .case-study-1.it-case-brands .single-case-item .content .icon {
+  background: var(--dm-surface) !important;
+  color: var(--dm-accent-3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Servicios (grilla service-4): tarjetas claras → en dark superficie + texto claro */
+html[data-theme="dark"] .service-4 .signle-service-item {
+  background: var(--dm-surface) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+html[data-theme="dark"] .service-4 .signle-service-item h4 a {
+  color: var(--dm-headings) !important;
+}
+html[data-theme="dark"] .service-4 .signle-service-item p {
+  color: var(--dm-text) !important;
+}
+html[data-theme="dark"] .service-4 .section-title p {
+  color: var(--dm-text) !important;
+}
+html[data-theme="dark"] .service-4 .section-title h2 {
+  color: var(--dm-headings) !important;
+}
+
+/* Accesible: :focus al toggle */
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--theme);
+  outline-offset: 2px;
+}
+
+/* Menú móvil (meanmenu) */
+html[data-theme="dark"] .mean-container .mean-nav,
+html[data-theme="dark"] .mean-container .mean-bar {
+  background: #0e1422 !important;
+}
+
+html[data-theme="dark"] .mean-container .mean-nav a {
+  color: #e2e6ef !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
