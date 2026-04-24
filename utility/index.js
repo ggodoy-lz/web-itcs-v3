@@ -19,25 +19,45 @@ export const zotechUtility = {
     const offcanvas = document.querySelector(".offcanvas__info");
     const overlay = document.querySelector(".offcanvas__overlay");
     if (!offcanvas || !overlay) return;
-    toggle
-      .addEventListener("click", function () {
+    const setOpen = (open) => {
+      if (open) {
         offcanvas.classList.add("info-open");
         overlay.classList.add("overlay-open");
-      });
+        document.body.classList.add("offcanvas-menu-open");
+      } else {
+        offcanvas.classList.remove("info-open");
+        overlay.classList.remove("overlay-open");
+        document.body.classList.remove("offcanvas-menu-open");
+      }
+    };
+    toggle.addEventListener("click", function () {
+      setOpen(!offcanvas.classList.contains("info-open"));
+    });
     document
       .querySelectorAll(".offcanvas__close,.offcanvas__overlay")
       .forEach((el) => {
         el.addEventListener("click", function () {
-          offcanvas.classList.remove("info-open");
-          overlay.classList.remove("overlay-open");
+          setOpen(false);
         });
       });
   },
+  /** WOW registra el constructor en `window` al ejecutar el bundle; no sobrescribir con el return de require. */
   animation: () => {
-    if (typeof window !== "undefined") {
-      window.WOW = require("wowjs");
+    if (typeof window === "undefined") return;
+    const mod = require("wowjs");
+    const Ctor =
+      (typeof window.WOW === "function" && window.WOW) ||
+      (mod && (mod.WOW || mod.default)) ||
+      null;
+    if (typeof Ctor === "function") {
+      new Ctor({
+        boxClass: "wow",
+        animateClass: "animated",
+        offset: 0,
+        mobile: true,
+        live: true,
+      }).init();
     }
-    new WOW.WOW().init();
   },
   progressBar: () => {
     const bars = document.querySelectorAll(".count-bar");
@@ -53,7 +73,7 @@ export const zotechUtility = {
             }
           });
         },
-        { root: null, threshold: 1, rootMargin: "-50px" }
+        { root: null, threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
       );
       bars.forEach((bar) => observer.observe(bar));
     }
@@ -64,9 +84,31 @@ export const zotechUtility = {
       try {
         gsap.registerPlugin(SplitText, ScrollTrigger);
 
+        const scheduleScrollTriggerRefresh = () => {
+          const go = () => {
+            try {
+              ScrollTrigger.refresh();
+            } catch (_) {
+              /* noop */
+            }
+          };
+          requestAnimationFrame(() => {
+            go();
+            requestAnimationFrame(go);
+          });
+          if (typeof document !== "undefined" && document.fonts?.ready) {
+            document.fonts.ready.then(() => setTimeout(go, 0));
+          }
+        };
+
+        const simpleSplitMotion =
+          typeof window !== "undefined" &&
+          (window.matchMedia("(max-width: 768px)").matches ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
         // Text Invert With Scroll (solo si existen nodos; SplitText no debe
         // instanciarse con selector vacío o rompe el hilo y la página queda en blanco)
-        if (document.querySelector(".bw-split-text")) {
+        if (document.querySelector(".bw-split-text") && !simpleSplitMotion) {
           const splitInvert = new SplitText(".bw-split-text", {
             type: "lines",
           });
@@ -84,48 +126,85 @@ export const zotechUtility = {
           });
         }
 
-      //>> Split Text Animation <<//
-      const st = document.querySelectorAll(".split-text");
-      st.forEach((el) => {
-        if (!el.textContent?.trim()) return;
-        el.split = new SplitText(el, {
-          type: "lines,words,chars",
-          linesClass: "split-line",
+        //>> Split Text Animation <<//
+        const st = document.querySelectorAll(".split-text");
+        st.forEach((el) => {
+          if (!el.textContent?.trim()) return;
+          if (simpleSplitMotion) {
+            gsap.fromTo(
+              el,
+              { opacity: 0, y: 22 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 92%",
+                  toggleActions: "play none none none",
+                },
+              }
+            );
+            return;
+          }
+          try {
+            el.split = new SplitText(el, {
+              type: "lines,words,chars",
+              linesClass: "split-line",
+            });
+
+            gsap.set(el, { perspective: 400 });
+
+            if (el.classList.contains("right")) {
+              gsap.set(el.split.chars, {
+                opacity: 0,
+                x: "50",
+                ease: "circ.easeOut",
+              });
+            }
+            if (el.classList.contains("left")) {
+              gsap.set(el.split.chars, {
+                opacity: 0,
+                x: "-50",
+                ease: "circ.out",
+              });
+            }
+            if (el.classList.contains("up")) {
+              gsap.set(el.split.chars, {
+                opacity: 0,
+                y: "80",
+                ease: "circ.out",
+              });
+            }
+            if (el.classList.contains("down")) {
+              gsap.set(el.split.chars, {
+                opacity: 0,
+                y: "-80",
+                ease: "circ.out",
+              });
+            }
+
+            el.anim = gsap.to(el.split.chars, {
+              scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                toggleActions: "play none none none",
+                invalidateOnRefresh: true,
+              },
+              x: 0,
+              y: 0,
+              rotateX: 0,
+              scale: 1,
+              opacity: 1,
+              duration: 0.4,
+              stagger: 0.02,
+            });
+          } catch (e) {
+            console.warn("split-text anim:", e);
+            gsap.set(el, { opacity: 1, clearProps: "all" });
+          }
         });
-
-        gsap.set(el, { perspective: 400 });
-
-        if (el.classList.contains("right")) {
-          gsap.set(el.split.chars, {
-            opacity: 0,
-            x: "50",
-            ease: "circ.easeOut",
-          });
-        }
-        if (el.classList.contains("left")) {
-          gsap.set(el.split.chars, { opacity: 0, x: "-50", ease: "circ.out" });
-        }
-        if (el.classList.contains("up")) {
-          gsap.set(el.split.chars, { opacity: 0, y: "80", ease: "circ.out" });
-        }
-        if (el.classList.contains("down")) {
-          gsap.set(el.split.chars, { opacity: 0, y: "-80", ease: "circ.out" });
-        }
-
-        el.anim = gsap.to(el.split.chars, {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-          },
-          x: 0,
-          y: 0,
-          rotateX: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 0.4,
-          stagger: 0.02,
-        });
-      });
 
       // Text Up Scroll
       const textUp = document.querySelectorAll(".text-splite-up");
@@ -299,6 +378,8 @@ export const zotechUtility = {
         const bg = el.getAttribute("data-background");
         if (bg) el.style.backgroundImage = `url(${bg})`;
       });
+
+        scheduleScrollTriggerRefresh();
       } catch (err) {
         console.error("gsapAnimation:", err);
       }

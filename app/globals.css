@@ -656,3 +656,66 @@ html[data-theme="dark"] .mean-container .mean-nav a {
   color: #e2e6ef !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
+
+/* —— Móvil / layout: sin scroll horizontal, menú off-canvas usable —— */
+body.offcanvas-menu-open {
+  overflow: hidden;
+}
+
+.page-wrapper {
+  overflow-x: clip;
+}
+
+/* Hero: espacio y tipografía en pantallas pequeñas */
+@media (max-width: 575.98px) {
+  .hero-1 .hero-content {
+    padding-top: 72px;
+    padding-bottom: 48px;
+  }
+  .hero-1 .hero-content h1 {
+    font-size: clamp(1.65rem, 6.5vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* «Por qué iTCS»: dos columnas de iconos → apilado legible */
+@media (max-width: 767.98px) {
+  .choose-us-1 .choose-us-content .icon-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .choose-us-1 .choose-us-content .icon-box .single-icon-box {
+    max-width: 100%;
+  }
+}
+
+/* Proceso (home): menos relleno inferior en móvil */
+@media (max-width: 991.98px) {
+  .process-1 .process-items {
+    padding-bottom: 72px !important;
+    padding-top: 40px !important;
+  }
+  .process-1 .process-items .single-process-item .image {
+    height: auto;
+    min-height: 220px;
+    aspect-ratio: 372 / 333;
+  }
+}
+
+/* Split text (GSAP): herencia de color en títulos blancos sobre imagen */
+.text-white.split-text .split-line,
+.text-white.split-text .split-line span {
+  color: inherit;
+}
+
+/* WOW + reduced motion: nunca dejar bloques invisibles */
+@media (prefers-reduced-motion: reduce) {
+  .wow {
+    animation: none !important;
+    visibility: visible !important;
+  }
+  .split-text {
+    opacity: 1 !important;
+  }
+}
