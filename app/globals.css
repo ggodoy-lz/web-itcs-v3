@@ -331,30 +331,7 @@ img.mfp-img {
   margin: 0;
 }
 
-/* Topbar: modo claro/oscuro */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.theme-toggle i {
-  font-size: 16px;
-}
-
-/* —— Modo oscuro: paleta (fondos azul-oscuro, acentos índigo / violeta / azul) ——
+/* —— Tema: solo oscuro (data-theme="dark" fijo) —— Modo oscuro: paleta (fondos azul-oscuro, acentos índigo / violeta / azul) ——
    --white se usa en el template como FONDO de bloques: en dark = superficie. */
 html[data-theme="dark"] {
   /* Fondos (de tu paleta: navy casi negro, carbón, pizarra) */
@@ -639,12 +616,6 @@ html[data-theme="dark"] .service-4 .section-title p {
 }
 html[data-theme="dark"] .service-4 .section-title h2 {
   color: var(--dm-headings) !important;
-}
-
-/* Accesible: :focus al toggle */
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--theme);
-  outline-offset: 2px;
 }
 
 /* Menú móvil (meanmenu) */

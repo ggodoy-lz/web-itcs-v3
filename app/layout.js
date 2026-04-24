@@ -51,6 +51,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="es"
+      data-theme="dark"
       className={`${montserratFont.variable} ${dm_sansFont.variable}`}
       suppressHydrationWarning
     >
@@ -59,7 +60,7 @@ export default function RootLayout({ children }) {
           id="zotech-theme-init"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("zotech-theme"),d="light";if(t==="dark"||t==="light")d=t;else d=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",d);}catch(e){}`,
+            __html: `try{localStorage.setItem("zotech-theme","dark");document.documentElement.setAttribute("data-theme","dark");}catch(e){document.documentElement.setAttribute("data-theme","dark");}`,
           }}
         />
         <Preloader />

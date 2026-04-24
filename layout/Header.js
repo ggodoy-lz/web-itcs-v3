@@ -1,6 +1,5 @@
 "use client";
 import ItcsThemeLogo from "@/components/ItcsThemeLogo";
-import ThemeToggle from "@/components/ThemeToggle";
 import { zotechUtility } from "@/utility";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
@@ -50,7 +49,6 @@ const Header1 = () => {
             </ul>
             {/* /.topbar__info */}
             <div className="d-flex align-items-center gap-3 topbar__actions">
-              <ThemeToggle />
             <div className="social">
               <a href="#">
                 <i className="fab fa-facebook-f" />
