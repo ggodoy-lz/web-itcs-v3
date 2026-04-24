@@ -896,3 +896,125 @@ html[data-theme="dark"] .choose-us-3 .choose-us-images .single-choose-item {
   animation: none !important;
   transform: none !important;
 }
+
+/* —— iTCS: sin efectos hover en tarjetas / imágenes (la plantilla tapaba fotos o animaba iconos) —— */
+/* Home service-1: .shape-3/4 al hover cubren la imagen; mantener invisibles */
+.service-1 .service-inner .single-service-item .shape-3,
+.service-1 .service-inner .single-service-item .shape-4,
+.service-1 .service-inner .single-service-item:hover .shape-3,
+.service-1 .service-inner .single-service-item:hover .shape-4 {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: none !important;
+}
+.service-1 .service-inner .single-service-item:hover .icon i {
+  animation: none !important;
+}
+.service-1 .service-inner .single-service-item:hover .icon-list {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+/* Grilla de features: mismo aspecto con o sin hover */
+.features-1 .single-feature-item:hover {
+  background: var(--white) !important;
+}
+html[data-theme="dark"] .features-1 .single-feature-item:hover {
+  background: var(--dm-surface) !important;
+}
+.features-1 .single-feature-item:hover .icon {
+  background: linear-gradient(84deg, var(--theme) 0%, var(--theme-2) 100%) !important;
+}
+.features-1 .single-feature-item:hover .icon i {
+  animation: none !important;
+  color: var(--white) !important;
+}
+.features-1 .single-feature-item:hover h4,
+.features-1 .single-feature-item:hover h4 a {
+  color: var(--black-2) !important;
+}
+.features-1 .single-feature-item:hover p,
+.features-1 .single-feature-item:hover li {
+  color: var(--text) !important;
+}
+.features-1 .single-feature-item:hover li i {
+  color: var(--theme) !important;
+}
+.features-1 .single-feature-item:hover a {
+  color: var(--black-2) !important;
+}
+html[data-theme="dark"] .features-1 .single-feature-item:hover h4,
+html[data-theme="dark"] .features-1 .single-feature-item:hover h4 a,
+html[data-theme="dark"] .features-1 .single-feature-item:hover a {
+  color: var(--dm-headings) !important;
+}
+html[data-theme="dark"] .features-1 .single-feature-item:hover p,
+html[data-theme="dark"] .features-1 .single-feature-item:hover li,
+html[data-theme="dark"] .features-1 .single-feature-item:hover li i {
+  color: var(--dm-text) !important;
+}
+/* Case study: sin zoom en la imagen ni shine */
+.case-study-1 .single-case-item:hover img,
+.case-study-1.style-2 .single-case-item:hover img {
+  transform: none !important;
+  scale: none !important;
+}
+.case-study-1 .single-case-item:hover .image::before {
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+/* Blog: sin transform en la imagen al hover */
+.blog-1 .blog-inner .single-blog-item:hover .image img {
+  transform: none !important;
+}
+/* service-2 / 3: icono y título */
+.service-2 .service-inner .service-items .signle-service-item:hover .icon {
+  animation: none !important;
+}
+.service-3 .single-service-item:hover h2 {
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-stroke-color: transparent !important;
+  color: rgba(255, 255, 255, 0.32) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: border-box !important;
+}
+/* choose-us-3: sin revelar overlay al hover (solo .active) */
+.choose-us-3 .choose-us-images .single-choose-item:not(.active):hover::before,
+.choose-us-3 .choose-us-images .single-choose-item:not(.active):hover::after {
+  width: 0% !important;
+  height: 0% !important;
+}
+.choose-us-3 .choose-us-images .single-choose-item:not(.active):hover .single-choose-hover {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+/* Equipo: formas decorativas sin movimiento al hover */
+.team-1 .single-team-item:hover .shape-2,
+.team-1 .single-team-item:hover .shape-3 {
+  animation: none !important;
+  transform: none !important;
+}
+/* Tarjetas de contacto: sin franja con gradiente al hover */
+.single-contact-card:hover::after {
+  width: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.single-contact-card:hover .icon {
+  color: var(--theme) !important;
+}
+.single-contact-card:hover p,
+.single-contact-card:hover span {
+  color: var(--text) !important;
+}
+.single-contact-card:hover h4 {
+  color: var(--black-2) !important;
+}
+html[data-theme="dark"] .single-contact-card:hover p,
+html[data-theme="dark"] .single-contact-card:hover span {
+  color: var(--dm-text) !important;
+}
+html[data-theme="dark"] .single-contact-card:hover h4 {
+  color: var(--dm-headings) !important;
+}
