@@ -1,0 +1,56 @@
+/* Se importa DESPUÉS de public/assets/css/main.css: prioridad de cascada sobre la plantilla.
+   Objetivo: al pasar el ratón, la foto no hace zoom ni se reemplaza por otra capa. */
+
+/* Case study: sin brillo en ::before (la plantilla lo anima al hover) */
+html body .case-study-1 .single-case-item .image::before,
+html body .case-study-1 .single-case-item:hover .image::before {
+  display: none !important;
+  content: none !important;
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+
+html body .case-study-1 .single-case-item .image img,
+html body .case-study-1 .single-case-item:hover .image img {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+  transition: none !important;
+}
+
+/* Service (home): capas .shape-3/4 nunca se muestran encima de la foto */
+html body .service-1 .service-inner .single-service-item img.shape-3,
+html body .service-1 .service-inner .single-service-item img.shape-4,
+html body .service-1 .service-inner .single-service-item:hover img.shape-3,
+html body .service-1 .service-inner .single-service-item:hover img.shape-4 {
+  display: none !important;
+}
+
+html body .service-1 .service-inner .single-service-item .image img,
+html body .service-1 .service-inner .single-service-item:hover .image img {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+  transition: none !important;
+}
+
+/* Blog: refuerzo (main.css ya oculta la 2.ª) */
+html body .blog-1 .blog-inner .single-blog-item .image img,
+html body .blog-1 .blog-inner .single-blog-item:hover .image img {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+  transition: none !important;
+}
+
+/* Proceso, equipo, service-4: imágenes de tarjeta fijas */
+html body .process-1 .single-process-item .image img,
+html body .process-1 .single-process-item:hover .image img,
+html body .team-1 .single-team-item .team-image .image img,
+html body .team-1 .single-team-item:hover .team-image .image img,
+html body .service-4 .signle-service-item .image img,
+html body .service-4 .signle-service-item:hover .image img {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+}

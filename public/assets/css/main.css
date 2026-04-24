@@ -3815,14 +3815,14 @@ input.main-search-input::placeholder {
   opacity: 1;
   visibility: visible;
 }
+/* iTCS: formas no deben tapar la foto al hover */
 .service-1 .service-inner .single-service-item:hover .shape-3 {
-  top: -2px;
-  opacity: 1;
-  left: -30px;
+  opacity: 0;
+  visibility: hidden;
 }
 .service-1 .service-inner .single-service-item:hover .shape-4 {
-  opacity: 1;
-  right: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .service-2 {
@@ -5389,12 +5389,13 @@ input.main-search-input::placeholder {
   cursor: pointer;
   background-color: var(--white);
 }
+/* iTCS: desactivado (hover en foto) — se controla en app/globals o itcs-image-hover-lock */
 .case-study-1 .single-case-item:hover img {
-  transform: scale(1.1);
+  transform: none;
 }
 .case-study-1 .single-case-item:hover .image::before {
-  -webkit-animation: projectCardShine 0.5s;
-  animation: projectCardShine 0.5s;
+  -webkit-animation: none;
+  animation: none;
 }
 @keyframes projectCardShine {
   100% {
@@ -7759,16 +7760,9 @@ p.sticky-label {
   border-radius: 12px;
   object-fit: cover;
 }
+/* iTCS: segunda imagen desactivada (no sustituto al hover) */
 .blog-1 .blog-inner .single-blog-item .image img:nth-child(2) {
-  position: absolute;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  visibility: hidden;
-  height: 100%;
-  width: 0;
-  transition: 1s;
-  transform: none;
+  display: none;
 }
 .blog-1 .blog-inner .single-blog-item .content {
   margin-top: 20px;
@@ -7832,9 +7826,7 @@ p.sticky-label {
   padding-left: 8px;
 }
 .blog-1 .blog-inner .single-blog-item:hover .image img:nth-child(2) {
-  width: 100%;
-  visibility: visible;
-  transform: none;
+  display: none;
 }
 .blog-1.style-2 {
   position: relative;
